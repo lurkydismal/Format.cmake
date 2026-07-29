@@ -375,7 +375,7 @@ def run_clang_format_and_save_to_tree(changed_lines, revision=None,
         stdout = git_metadata.communicate()[0]
         mode = oct(int(stdout.split()[0], 8))
       else:
-        if os.path.islink(filename) and not os.path.exists(filename):
+        if os.path.islink(filename):
             continue
         mode = oct(os.stat(filename).st_mode)
       # Adjust python3 octal format so that it matches what git expects
